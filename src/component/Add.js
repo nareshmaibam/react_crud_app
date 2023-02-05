@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { json } from "react-router-dom";
 import "../../node_modules/bootstrap/dist/css/bootstrap.min.css";
 function Add() {
   const [name, setName] = useState("");
@@ -30,6 +29,11 @@ function Add() {
         .then((result) => {
           if (result.Message === "User has been registered successfully!") {
             alert("Registration Success!!!");
+            setEmail("");
+            setUserName("");
+            setHobby("");
+            setName("");
+            setPhone("");
           } else {
             alert("something went wrong!");
           }
@@ -39,7 +43,7 @@ function Add() {
     }
   };
   return (
-    <div>
+    <div className="container">
       <h2 className="bg-success text-light text-center">Add a user</h2>
       <form onSubmit={formSumbit}>
         <input
@@ -80,7 +84,7 @@ function Add() {
         />
 
         <button
-          className="form-control btn btn-success text-light mt-2"
+          className="btn btn-primary text-light mt-2 ml-2"
           type="submit"
         >
           Submit
